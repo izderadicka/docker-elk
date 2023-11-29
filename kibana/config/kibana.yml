@@ -14,6 +14,7 @@ monitoring.ui.container.logstash.enabled: true
 elasticsearch.username: kibana_system
 elasticsearch.password: ${KIBANA_SYSTEM_PASSWORD}
 
+
 ##
 ## TLS configuration
 ## See instructions from README to enable.
@@ -27,7 +28,8 @@ elasticsearch.ssl.certificateAuthorities: [ config/ca.crt ]
 ## Communications between web browsers and Kibana
 ## see https://www.elastic.co/guide/en/kibana/current/configuring-tls.html#configuring-tls-browser-kib
 #
-server.ssl.enabled: false
+server.publicBaseUrl: ${PUBLIC_URL}
+server.ssl.enabled: true
 server.ssl.certificate: config/kibana.crt
 server.ssl.key: config/kibana.key
 

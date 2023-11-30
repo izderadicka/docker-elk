@@ -17,6 +17,9 @@ filebeat.inputs:
 
 output.logstash:
   hosts: ["localhost:5044"]
+  ssl.certificate_authorities: ["/usr/share/filebeat/ca.crt"]
+  ssl.certificate: "/usr/share/filebeat/filebeat.crt"
+  ssl.key: "/usr/share/filebeat/filebeat.key"
 
 # output.console:
 #   enabled: true

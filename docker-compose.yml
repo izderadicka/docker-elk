@@ -102,6 +102,9 @@ services:
       args:
         ELASTIC_VERSION: ${ELASTIC_VERSION}
     volumes:
+      - ./tls/certs/ca/ca.crt:/usr/share/logstash/config/ca.crt:ro,z
+      - ./tls/certs/logstash/logstash.crt:/usr/share/logstash/config/logstash.crt:ro,Z
+      - ./tls/certs/logstash/logstash.key:/usr/share/logstash/config/logstash.key:ro,Z
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro,Z
       # (!) CA certificate. Generate using the 'tls' service.

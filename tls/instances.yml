@@ -7,6 +7,8 @@ instances:
 - name: elasticsearch
   dns:
   - elasticsearch  # Compose service, resolved by the embedded Docker DNS server name
+  - elk01.ats
+  - elk.ats
   - localhost      # local connections
   ip:
   - 127.0.0.1      # local connections
@@ -16,23 +18,41 @@ instances:
   dns:
   - kibana.127.0.0.1.nip.io    # Examples of resolvable domains.
   - kibana.127.0.0.1.sslip.io  #
+  - elk01.ats
+  - elk.ats
   - localhost
   ip:
   - 127.0.0.1
   - ::1
 
-- name: fleet-server
+- name: logstash
   dns:
-  - fleet-server
+  - elk01.ats
+  - elk.ats
   - localhost
   ip:
   - 127.0.0.1
   - ::1
 
-- name: apm-server
+- name: filebeat
   dns:
-  - apm-server
   - localhost
   ip:
   - 127.0.0.1
   - ::1
+
+# - name: fleet-server
+#   dns:
+#   - fleet-server
+#   - localhost
+#   ip:
+#   - 127.0.0.1
+#   - ::1
+
+# - name: apm-server
+#   dns:
+#   - apm-server
+#   - localhost
+#   ip:
+#   - 127.0.0.1
+#   - ::1

@@ -35,7 +35,7 @@ def main():
     count = 0
     with open(args.file, 'at') as f:
         while args.max_lines is None or count < args.max_lines:
-            message = f"{datetime.datetime.now().isoformat()} {random_level()} {random_message()}\n"
+            message = f"{datetime.datetime.now(datetime.timezone.utc).isoformat()} {random_level()} {random_message()}\n"
             f.write(message)
             count += 1
             if args.frequency is not None:

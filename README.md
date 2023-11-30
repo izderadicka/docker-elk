@@ -1,3 +1,12 @@
+# Elastic stack on Podman + RHEL 
+
+Modified from [this Github project](https://github.com/deviantony/docker-elk), TLS branch to work with podman and podman-compose (for now in root mode).
+
+Also modified to provide TLS everywhere, even for logstash - filebeat configuration.
+
+Bonus - Demo log generator `log-gen.py` for testing.
+
+
 # Elastic stack (ELK) on Docker
 
 [![Elastic Stack version](https://img.shields.io/badge/Elastic%20Stack-8.11.1-00bfb3?style=flat&logo=elastic-stack)](https://www.elastic.co/blog/category/releases)

@@ -1,0 +1,44 @@
+tags: ["ivan", "test"]
+filebeat.inputs:
+  - type: filestream
+    id: demo-log
+    # ignore_older: 10d
+    paths:
+      - /logs/*.log
+    fields:
+      type: test
+
+# filebeat.modules:
+#   - module: apache
+#     access:
+#       enabled: true
+#       var.paths: ['/logs/logstash/apache/access_log_small']
+
+
+output.logstash:
+  hosts: ["localhost:5044"]
+  ssl.certificate_authorities: ["/usr/share/filebeat/ca.crt"]
+  ssl.certificate: "/usr/share/filebeat/filebeat.crt"
+  ssl.key: "/usr/share/filebeat/filebeat.key"
+
+# output.console:
+#   enabled: true
+#   pretty: true
+
+# filebeat.config:
+#   modules:
+#     path: ${path.config}/modules.d/*.yml
+#     reload.enabled: false
+
+# filebeat.autodiscover:
+#   providers:
+#     - type: docker
+#       hints.enabled: true
+
+# processors:
+# - add_cloud_metadata: ~
+
+# output.elasticsearch:
+#   hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
+#   username: '${ELASTICSEARCH_USERNAME:}'
+#   password: '${ELASTICSEARCH_PASSWORD:}'
